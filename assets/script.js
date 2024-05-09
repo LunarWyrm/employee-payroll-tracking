@@ -2,9 +2,11 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
+
+let employees = []
+
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
-  let employees = []
   while(true) {
     let firstName = prompt("Employee's First Name: ");
     if(!firstName) {
@@ -35,26 +37,27 @@ return employees;
 }
 
 // Display the average salary
-const displayAverageSalary = function(employeesArray) {
+const displayAverageSalary = function(employees) {
   // TODO: Calculate and display the average salary
   let averageSalarySubtotal = 0;
   
-  for (let i = 0; i < employeesArray.length; i++) {
-  averageSalarySubtotal += parseInt(employeesArray[i].salary);
+  for (let i = 0; i < employees.length; i++) {
+  averageSalarySubtotal += parseInt(employees[i].salary);
   }
-  let averageSalary = averageSalarySubtotal / employeesArray.length;
+  let averageSalary = averageSalarySubtotal / employees.length;
   console.log(averageSalary);
 
   console.log(`AVG Salary ${averageSalary.toFixed(2)}`);
 }
 
 // Select a random employee
-const getRandomEmployee = function(employeesArray) {
+const getRandomEmployee = function(employees) {
   // TODO: Select and display a random employee
-  // Math.random returns a random value within the employeesArray. Math.floor contains Math.random to round it down so we get a valid index in the range of the array.
-  const randomEmployee = Math.floor(Math.random * employeesArray.length);
+  // Math.random returns a random value within the employees. Math.floor contains Math.random to round it down so we get a valid index in the range of the array.
+  const randomEmployee = Math.floor(Math.random() * employees.length);
   return randomEmployee;
 }
+getRandomEmployee(employees);
 
 /*
   ====================
@@ -63,7 +66,7 @@ const getRandomEmployee = function(employeesArray) {
 */
 
 // Display employee data in an HTML table
-const displayEmployees = function(employeesArray) {
+const displayEmployees = function(employees) {
   // Get the employee table
   const employeeTable = document.querySelector('#employee-table');
 
@@ -71,8 +74,8 @@ const displayEmployees = function(employeesArray) {
   employeeTable.innerHTML = '';
 
   // Loop through the employee data and create a row for each employee
-  for (let i = 0; i < employeesArray.length; i++) {
-    const currentEmployee = employeesArray[i];
+  for (let i = 0; i < employees.length; i++) {
+    const currentEmployee = employees[i];
 
     const newTableRow = document.createElement("tr");
 
@@ -117,7 +120,7 @@ const trackEmployeeData = function() {
   });
 
   displayEmployees(employees);
-  getRandomEmployee();
+  getRandomEmployee(employees);
 }
 
 // Add event listener to 'Add Employees' button
