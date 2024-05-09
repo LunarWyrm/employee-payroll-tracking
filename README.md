@@ -1,6 +1,11 @@
 # employee-payroll-tracking
  Tracks the payroll of employees.
 
+Deployed Project:
+https://lunarwyrm.github.io/employee-payroll-tracking/
+
+Screenshot via Dropbox:
+https://www.dropbox.com/scl/fi/azbfq6lkgdtk6nmzey9qu/Screenshot-of-employee-payroll-tracking.PNG?rlkey=padzz90knsliof4i7blbqz5ep&st=potca0gf&dl=0
 
 Used as reference:
 
